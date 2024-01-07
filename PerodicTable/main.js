@@ -53,6 +53,16 @@ function generateTooltip(instance, helper) {
   ele.addClass("ele-selected");
   let eleName = ele.text().trim();
   let element = elements[eleName];
+  if (!element) {
+    element = {
+      atomic_number: "",
+      name_origin: "",
+      description: "",
+      atomic_weight: "",
+      discovery_location: "",
+      discovery_year: ""
+    }
+  };
   let tooltipContent = tooltipContentTemplate
     .replace("{ele-name}", eleName)
     .replace("{ele-name-origin}", element.name_origin)
